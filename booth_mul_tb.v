@@ -7,16 +7,16 @@ wire signed [7:0] qa0;
 reg signed [7:0] acc;
 reg signed imp;
 booth_multiplier samplebooth (.a(a), .b(b), .out(y));
-booth_check case1 (.a(acc), .Q(a), .q0(imp), .m(b), .as8(Aa0), .Qs8(Qa0), .cq0(qa0[0]));
-booth_check case2 (.a(acc), .Q(Qa0), .q0(imp), .m(b), .as8(Aa1), .Qs8(Qa1), .cq0(qa0[1]));
-booth_check case3 (.a(acc), .Q(Qa1), .q0(imp), .m(b), .as8(Aa2), .Qs8(Qa2), .cq0(qa0[2]));
-booth_check case4 (.a(acc), .Q(Qa2), .q0(imp), .m(b), .as8(Aa3), .Qs8(Qa3), .cq0(qa0[3]));
+booth_check case1 (.a(acc), .Q(b), .q0(imp), .m(a), .as8(Aa0), .Qs8(Qa0), .cq0(qa0[0]));
+booth_check case2 (.a(acc), .Q(Qa0), .q0(imp), .m(a), .as8(Aa1), .Qs8(Qa1), .cq0(qa0[1]));
+booth_check case3 (.a(acc), .Q(Qa1), .q0(imp), .m(a), .as8(Aa2), .Qs8(Qa2), .cq0(qa0[2]));
+booth_check case4 (.a(acc), .Q(Qa2), .q0(imp), .m(a), .as8(Aa3), .Qs8(Qa3), .cq0(qa0[3]));
 initial begin 
   $dumpfile ("booth_mul.vcd");
   $dumpvars (0, booth_mul_tb);
 end
 initial begin 
-  #0 a = 8'b01100100; b = 8'b11111000;
+  #0 a = 8'b1100100; b = 8'b11111000;
   $monitor ($time, " Multiplication : %d * %d = %d", a, b, y);
   #10 acc = 8'b00000000; imp = 1'b0;
   $monitor ($time, " Step 1 : %b %b %b", Aa0, Qa0, qa0[0]);
