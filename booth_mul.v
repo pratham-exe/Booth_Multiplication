@@ -71,17 +71,15 @@ endmodule
 
 module booth_multiplier (input signed [7:0] a, b, output signed [15:0] out);
   wire signed [7:0] Q0, Q1, Q2, Q3, Q4, Q5, Q6, Q7;
-  // wire signed [7:0] m;
-  wire signed [7:0] A0, A1, A2, A3;
-  wire signed [7:0] A4, A5, A6, A7;
-  wire signed [7:0] q0;
+  wire signed [7:0] A0, A1, A2, A3, A4, A5, A6, A7;
+  wire signed q0;
   wire qout;
-  booth_check step1 (8'b00000000, a, 1'b0, b, A1, Q1, q0[1]);
-  booth_check step2 (A1, Q1, q0[1], b, A2, Q2, q0[2]);
-  booth_check step3 (A2, Q2, q0[2], b, A3, Q3, q0[3]);
-  booth_check step4 (A3, Q3, q0[3], b, A4, Q4, q0[4]);
-  booth_check step5 (A4, Q4, q0[4], b, A5, Q5, q0[5]);
-  booth_check step6 (A5, Q5, q0[5], b, A6, Q6, q0[6]);
-  booth_check step7 (A6, Q6, q0[6], b, A7, Q7, q0[7]);
-  booth_check step8 (A7, Q7, q0[7], b, out[15:8], out[7:0], qout);
+  booth_check step1 (8'b00000000, a, 1'b0, b, A1, Q1, q0);
+  booth_check step2 (A1, Q1, q0, b, A2, Q2, q0);
+  booth_check step3 (A2, Q2, q0, b, A3, Q3, q0);
+  booth_check step4 (A3, Q3, q0, b, A4, Q4, q0);
+  booth_check step5 (A4, Q4, q0, b, A5, Q5, q0);
+  booth_check step6 (A5, Q5, q0, b, A6, Q6, q0);
+  booth_check step7 (A6, Q6, q0, b, A7, Q7, q0);
+  booth_check step8 (A7, Q7, q0, b, out[15:8], out[7:0], qout);
 endmodule
