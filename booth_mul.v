@@ -70,8 +70,8 @@ module booth_check (input wire signed [7:0] a, Q, input wire signed q0, input wi
 endmodule
 
 module booth_multiplier (input signed [7:0] a, b, output signed [15:0] out);
-  wire signed [7:0] Q0, Q1, Q2, Q3, Q4, Q5, Q6, Q7;
-  wire signed [7:0] A0, A1, A2, A3, A4, A5, A6, A7;
+  wire signed [7:0] Q1, Q2, Q3, Q4, Q5, Q6, Q7;
+  wire signed [7:0] A1, A2, A3, A4, A5, A6, A7;
   wire signed [7:0] q0;
   wire qout;
   booth_check step1 (8'b00000000, a, 1'b0, b, A1, Q1, q0[1]);
