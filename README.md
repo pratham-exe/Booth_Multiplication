@@ -4,9 +4,9 @@ Here Shift_Add multiplication algorithm is implemented using the tool iverilog. 
 - Fill all the bits with zeroes for accumulator. 
 - In first step Q-1 is zero.
 - Determine the LSB of Q and Q-1. 
-  - If they are 01, find the value of a=a+m and perform arithmetic right shift by 1 bit.
-  - If they are 10, find the value of a=a-m and perform arithmetic right shift by 1 bit.
-  - If they are 00 or 11, perform arithmetic right shift by 1 bit.
+    - If they are 01, find the value of a=a+m and perform arithmetic right shift by 1 bit.
+    - If they are 10, find the value of a=a-m and perform arithmetic right shift by 1 bit.
+    - If they are 00 or 11, perform arithmetic right shift by 1 bit.
 - Repeat the previous step for x times. 
 
 # Compile and Run 
